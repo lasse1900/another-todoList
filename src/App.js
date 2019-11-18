@@ -70,9 +70,9 @@ class App extends Component {
           {this.state.errorMessage && <span className='error'>{this.state.errorMessage}</span>}
           <TodoForm handleInputChange={this.handleInputChange}
             currentTodo={this.state.currentTodo}
-            handleSubmit={submitHandler} />
+            handleSubmit={submitHandler}/>
           <TodoList handleToggle={this.handleToggle}
-            todos={this.state.todos}
+            todos={displayTodos}
             handleRemove={this.handleRemove} />
           <Footer />
         </div>
