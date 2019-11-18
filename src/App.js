@@ -4,7 +4,7 @@ import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo'
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos} from './lib/todoHelpers'
 import {pipe, partial} from './lib/utils'
-import {loadTodos} from './lib/todoService'
+import {loadTodos, createTodo} from './lib/todoService'
 import PropTypes from 'prop-types'
 
 
@@ -45,6 +45,7 @@ class App extends Component {
       currentTodo: '',
       errorMessage: ''
     })
+    createTodo(newTodo).then(() => console.log('Todo added'))
   }
 
   handleEmptySubmit = (evt) => {
