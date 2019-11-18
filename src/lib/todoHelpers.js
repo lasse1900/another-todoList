@@ -2,7 +2,7 @@ export const addTodo = (list, item) =>
   [...list, item]
   // list.concat(item)
 
-export const generateID = () => Math.floor(Math.random() * 100000)
+export const generateId = () => Math.floor(Math.random() * 100000)
 
 export const findById = (id, list) => list.find(item => item.id === id)
 
@@ -27,4 +27,4 @@ export const removeTodo = (list, id) => {
     ...list.slice(0, removeIndex),
     ...list.slice(removeIndex+1)
   ]
-} 
+}
