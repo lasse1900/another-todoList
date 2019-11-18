@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Setup Server",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": 2,
@@ -13,12 +13,12 @@
     {
       "id": 3,
       "name": "Connect to Server",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,
       "name": "Setup fetch",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 53138,
@@ -43,7 +43,7 @@
     {
       "id": 20889,
       "name": "repola",
-      "isComplete": false
+      "isComplete": true
     }
   ]
 }
