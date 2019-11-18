@@ -7,9 +7,9 @@ class App extends Component {
     super()
     this.state = {
       todos: [
-        { id: 1, name: 'Learn JSX', isCompleted: true },
-        { id: 2, name: 'Build an Awesome App', isCompleted: false },
-        { id: 3, name: 'Ship It!', isCompleted: false }
+        { id: 1, name: 'Learn JSX', isComplete: true },
+        { id: 2, name: 'Build an Awesome App', isComplete: false },
+        { id: 3, name: 'Ship It!', isComplete: false }
       ],
       currentTodo: ''
     }
@@ -37,7 +37,7 @@ class App extends Component {
             <ul>
               {this.state.todos.map(todo =>
                 <li key={todo.id}>
-                  <input type="checkbox" defaultChecked={todo.isCompleted}/> {todo.name}
+                  <input type="checkbox" defaultChecked={todo.isComplete}/> {todo.name}
                 </li>)}
             </ul>
           </div>

@@ -2,22 +2,29 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { TodoForm, TodoList } from './components/todo'
-import {addTodo, generateID} from './lib/todoHelpers'
+import {addTodo, generateID, findById, toggleTodo, updateTodo} from './lib/todoHelpers'
 
 class App extends Component {
   state = {
     todos: [
-      { id: 1, name: 'Learn JSX', isCompleted: true },
-      { id: 2, name: 'Build an Awesome App', isCompleted: false },
-      { id: 3, name: 'Ship It!', isCompleted: false }
+      { id: 1, name: 'Learn JSX', isComplete: true },
+      { id: 2, name: 'Build an Awesome App', isComplete: false },
+      { id: 3, name: 'Ship It!', isComplete: false }
     ],
     currentTodo: ''
+  }
+
+  handleToggle = (id) => {
+    const todo = findById(id, this.state.todos)
+    const toggled = toggleTodo(todo)
+    const updatedTodos = updateTodo(this.state.todos, toggled)
+    this.setState({todos: updatedTodos})
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault()
     const newId = generateID()
-    const newTodo = {id: newId, name: this.state.currentTodo, isCompleted: false}
+    const newTodo = {id: newId, name: this.state.currentTodo, isComplete: false}
     const updatedTodos = addTodo(this.state.todos, newTodo)
     this.setState({
       todos: updatedTodos,
@@ -52,7 +59,7 @@ class App extends Component {
           <TodoForm handleInputChange={this.handleInputChange}
           currentTodo={this.state.currentTodo}
           handleSubmit={submitHandler}/>
-          <TodoList todos={this.state.todos}/>
+          <TodoList handleToggle={this.handleToggle} todos={this.state.todos}/>
 
         </div>
       </div>
